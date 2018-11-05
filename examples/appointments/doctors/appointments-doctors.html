@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <button type="button" class="btn btn-primary pull-left"
+          ng-click="doctorCtrl.back()" translate>button.back
+  </button>
+</div>
+<div class="text-center">
+  <h1 translate>appointment.selectDoctor</h1>
+</div>
+<div class="container">
+  <div ng-repeat="doctor in doctorCtrl.doctors" class="row table-bordered text-left">
+    <div class="col-md-2">
+      <div ng-if="!doctor.photo || (doctor.photo =='')">
+        <img ng-src="assets/images/no-image.jpg" style="width:120px; height:120px;"/>
+      </div>
+      <div ng-if="doctor.photo && (doctor.photo !='')">
+        <img ng-src="{{doctor.photo}}" style="width:120px; height:120px;"/>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h4>{{doctor.firstName}} {{doctor.lastName}}</h4>
+      <!--<p>{{doctor.title}}</p>-->
+      <p>{{doctor.description}}</p>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-block" ng-click="doctorCtrl.select(doctor)" translate>button.select</button>
+    </div>
+  </div>
+</div>

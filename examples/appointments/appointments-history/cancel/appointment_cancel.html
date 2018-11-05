@@ -1,0 +1,17 @@
+<div class="modal-header text-center">
+  <h2 class="modal-title" id="modal-title" translate>appointment.cancelDialogTitle</h2>
+</div>
+
+<form role="form" name="form" novalidate>
+  <div class="modal-body" id="modal-body">
+    {{'appointment.cancellationMessage' | translate}}
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-danger pull-left" type="button"
+            ng-click="ctrl.cancel()" translate>button.yes</button>
+    <button class="btn btn-warning pull-right" type="button"
+            ng-click="ctrl.closeModal()" translate>button.no</button>
+  </div>
+
+</form>

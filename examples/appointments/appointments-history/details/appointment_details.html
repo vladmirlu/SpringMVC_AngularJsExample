@@ -1,0 +1,39 @@
+<div class="modal-header text-center">
+  <h2 class="modal-title" id="modal-title" translate>appointment.dialogTitle</h2>
+</div>
+
+<form role="form" name="form" novalidate>
+  <div class="modal-body" id="modal-body">
+
+    <div class="form-group">
+      <label for="date" class="control-label" translate>common.date</label>
+      <input type="text" class="form-control" id="date" name="date"
+             ng-model="ctrl.appointment.appointmentDate" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="branch" class="control-label" translate>common.branch</label>
+      <input type="text" class="form-control" id="branch"
+             name="branch" ng-model="ctrl.appointment.branch.name" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="status" class="control-label" translate>common.doctor</label>
+      <input type="text" class="form-control" id="status" name="status"
+             ng-model="ctrl.appointment.doctor.name" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="title" class="control-label" translate>common.paymentMethod</label>
+      <input type="text" class="form-control" id="title"
+             name="title" ng-model="ctrl.appointment.payMethod.name" readonly>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-warning pull-right" type="button"
+            ng-click="ctrl.closeModal()" translate>button.close</button>
+  </div>
+
+</form>

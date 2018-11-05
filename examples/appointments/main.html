@@ -1,0 +1,28 @@
+<div class="text-center">
+  <div class="alert alert-warning" ng-show="!registerCtrl.errorAppointment &&
+                                            !registerCtrl.overLimit && registerCtrl.userAuthenticated">
+    <span>
+      {{'user.dearUser' | translate : {firstName: activeProfile.firstName, lastName: activeProfile.lastName} }}
+      {{'appointment.availableMessage' | translate : {amount: registerCtrl.availableAppointmentsSize} }}
+    </span>
+  </div>
+  <div class="alert alert-danger" ng-show="registerCtrl.overLimit">
+    <span>
+      <strong>{{'common.registrationError' | translate}}</strong>
+      {{'user.dearUser' | translate : {firstName: activeProfile.firstName, lastName: activeProfile.lastName} }}
+      {{'appointment.registrationLimitError' | translate}}
+    </span>
+  </div>
+  <div class="alert-danger" ng-show="registerCtrl.errorAppointment">
+    <span>
+      <strong>{{'common.registrationError' | translate}}</strong>
+      {{'common.cannotGetInfoFromServer' | translate}}
+    </span>
+  </div>
+  <div>
+    <div ui-view></div>
+  </div>
+</div>
+
+
+

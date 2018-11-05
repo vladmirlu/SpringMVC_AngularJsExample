@@ -1,0 +1,34 @@
+
+<div class="text-center">
+  <div class="alert alert-success">
+    <div ng-show="!summaryCtrl.noSubscription">
+      <p class="lead">
+        <label translate>appointment.registrationFinish</label>
+        <div translate>appointment.registrationFinishMessage</div>
+      </p>
+    </div>
+    <div ng-if="!summaryCtrl.noSubscription" ng-show="summaryCtrl.selection.payMethod.name">
+      <strong>{{'common.attention' | translate}}</strong>
+      {{'user.paymentMethodWarning' | translate : { paymentMethod: summaryCtrl.selection.payMethod.name } }}
+      {{summaryCtrl.message}}
+      <div class="alert" ng-if="summaryCtrl.selection.payMethod.name === 'NFZ'">
+        <a ui-sref="main" translate>common.formMFZ</a>
+      </div>
+    </div>
+  </div>
+
+  <label class="text-center" translate>appointment.registrationDescription</label>
+  <table class="table table-condensed table-bordered table-striped table-hover">
+    <tr>
+      <th class="center-content" translate>common.pointName</th>
+      <th class="center-content" translate>common.pointValue</th>
+    </tr>
+    <tr ng-repeat="point in summaryCtrl.selectedPoints" >
+      <td class="text-left"> {{point.name | translate}}</td>
+      <td class="text-left"> {{point.value}}</td>
+    </tr>
+  </table>
+
+</div>
+
+

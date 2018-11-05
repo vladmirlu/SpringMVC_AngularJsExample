@@ -1,0 +1,63 @@
+<div class="text-center">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-primary pull-left"
+            ng-click="summaryCtrl.back()" translate>button.back
+    </button>
+  </div>
+
+  <div class="text-center">
+    <p class="lead">
+      <label translate>appointment.confirmRegistration</label>
+    </p>
+  </div>
+  <label class="text-center" translate>appointment.registrationDescription</label>
+  <div class="alert alert-info" ng-show="summaryCtrl.isOffer && !summaryCtrl.error">
+    <b translate>appointment.specialOfferMessage</b>
+  </div>
+  <div class="alert alert-danger" ng-show="summaryCtrl.error">
+    {{summaryCtrl.errorMessage}}
+  </div>
+  <table class="table table-condensed table-bordered table-striped">
+    <tr>
+      <th class="center-content" translate>common.pointName</th>
+      <th class="center-content" translate>common.pointValue</th>
+    </tr>
+    <tr>
+      <td class="text-left" translate>appointment.doctorPhoto</td>
+      <td class="text-left">
+        <span ng-if="!summaryCtrl.selection.doctor.photo || (summaryCtrl.selection.doctor.photo == '')">
+          <img ng-src="assets/images/no-image.jpg" style="width:120px; height:120px;"/>
+        </span>
+        <span ng-if="summaryCtrl.selection.doctor.photo && (summaryCtrl.selection.doctor.photo != '')">
+          <img ng-src="{{summaryCtrl.selection.doctor.photo}}" style="width:120px; height:120px;"/>
+        </span>
+        <!--<img ng-src="{{summaryCtrl.selection.doctor.photo}}" style="width:120px; height:120px;"/>-->
+      </td>
+    </tr>
+    <tr ng-repeat="point in summaryCtrl.selectedPoints">
+      <td class="text-left"> {{point.name | translate}}</td>
+      <td class="text-left"> {{point.value}}</td>
+    </tr>
+  </table>
+  <div class="alert"
+       ng-if="summaryCtrl.selection.payMethod.name != 'Online'">
+    <button type="button" class="btn btn-primary pull-left"
+            ng-click="summaryCtrl.confirm()" ng-disabled="summaryCtrl.loading" translate>button.confirm
+    </button>
+  </div>
+  <div ng-if="summaryCtrl.selection.payMethod.name === 'Online'">
+    <span class="alert-info" translate>user.onlinePaymentMethodSelected</span>
+    <div ng-if="summaryCtrl.loading">
+      <div class="loader">{{'common.loading' | translate}}</div>
+      {{'common.redirectingToP24' | translate}}
+    </div>
+    <div class="col-md-12"><br></div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" ng-hide="summaryCtrl.loading"
+              ng-click="summaryCtrl.saveAppointmentAndStartTransaction()" translate>button.payOnline
+      </button>
+    </div>
+    <div class="col-md-12"><br></div>
+    <span class="alert-danger" ng-show="summaryCtrl.timeout">{{'user.p24Unreachable' | translate}}</span>
+  </div>
+</div>

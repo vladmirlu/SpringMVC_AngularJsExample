@@ -1,0 +1,12 @@
+<div class="text-center">
+<div class="text-center">
+  <h1 translate>appointment.registrations</h1>
+</div>
+  <table class="table table-condensed table-bordered table-striped table-hover">
+    <tr ng-repeat="speciality in specialitiesCtrl.specialities">
+      <td data-title="'Service name'" class="text-left" ng-click="specialitiesCtrl.select(speciality)"> {{speciality.name}}</td>
+      </td>
+    </tr>
+  </table>
+</div>
+

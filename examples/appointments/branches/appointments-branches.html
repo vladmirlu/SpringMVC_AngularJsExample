@@ -1,0 +1,21 @@
+<div class="col-md-12">
+  <button type="button" class="btn btn-primary pull-left"
+          ng-click="ctrl.back()" translate>button.back</button>
+</div>
+
+<div class="text-center">
+  <h1 translate>user.selectBranch</h1>
+</div>
+
+<table class="table table-condensed table-bordered table-striped table-hover">
+  <tr>
+    <th class="center-content" translate>branch.city</th>
+    <th class="center-content" translate>branch.address</th>
+  </tr>
+  <tr ng-repeat="branch in ctrl.branches" ng-click="ctrl.select(branch)">
+    <td> {{branch.name}}</td>
+    <td> {{branch.facilityName}}</td>
+  </tr>
+</table>
+
+

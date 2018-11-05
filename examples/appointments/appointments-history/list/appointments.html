@@ -1,0 +1,17 @@
+<h1 class="text-center" translate>user.appointments</h1>
+
+<table ng-table="ctrl.tableParams" class="table table-condensed table-bordered table-striped table-hover">
+  <tr ng-repeat="appointment in $data">
+    <td data-title="'Date'" ng-click="ctrl.showAppointment(appointment)">{{appointment.appointmentDate | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+    <td data-title="'Branch'" ng-click="ctrl.showAppointment(appointment)"> {{appointment.branch.name}}</td>
+    <td data-title="'Doctor'" ng-click="ctrl.showAppointment(appointment)">
+      {{appointment.doctor.firstName + ' ' + appointment.doctor.lastName}}</td>
+    <td data-title="'Action'" style="width:70px;" class="center-content">
+      <button class="btn btn-primary no-focus-outline"
+             type="button" ng-click="ctrl.cancel(appointment)">
+        {{'button.cancel' | translate}}
+      </button>
+    </td>
+  </tr>
+</table>
+
